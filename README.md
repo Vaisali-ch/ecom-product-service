@@ -19,3 +19,13 @@ ecom-product-service
      4. PUT	/products/:id	            ///  Update a product
      5. DELETE	/products/:id	        ///  Delete a product
      6. GET	/products/:id/availability	///  Check availability
+
+### Steps to deploy product service
+  1. clone this repo using "git clone https://github.com/vaisali-ch/ecom-product-service.git"
+  2. go to ecom-product-service repo
+  3. run 'docker build .' command to build docker image
+  4. get docker imageID using command 'docker image ls'.
+  4. run 'docker tag <image-id> docker-repo-path:tag (// in mycase it is https://hub.docker.com/repositories/myusername).
+  5. run 'docker push docker-repo-path:tag' to push docker image to docker hub.
+  6. use same image path (docker-repo-path:tag) into product-service.yaml file to deploy it as service.
+  7. run command 'kubectl deploy -f product-service.yaml' to deploy it as service.
